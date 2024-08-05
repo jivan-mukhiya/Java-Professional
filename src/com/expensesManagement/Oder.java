@@ -1,6 +1,6 @@
 package com.expensesManagement;
 
-public class OderModel {
+public class Oder {
 
     private String foodName;
     private int price;
@@ -21,11 +21,11 @@ public class OderModel {
         this.price = price;
     }
 
-    public OderModel(String foodName, int price) {
+    public Oder(String foodName, int price) {
         this.foodName = foodName;
         this.price = price;
     }
 
-    public OderModel() {
+    public Oder() {
     }
 }

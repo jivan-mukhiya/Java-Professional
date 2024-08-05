@@ -5,9 +5,9 @@ import java.util.List;
 
 public class ExpensesManagementServices {
 
-    public int totalExpenses(List<OderModel> oderList){
+    public int totalExpenses(List<Oder> oderList){
         int sum=0;
-        for(OderModel oder:oderList){
+        for(Oder oder:oderList){
             sum += oder.getPrice();
 
         }
@@ -17,23 +17,29 @@ public class ExpensesManagementServices {
 
 
 
-    public List<ExpensesPerHead> perHeadExpenses(int totalMember,int totalExpenses,List<Payment> paymentList){
+    public List<ExpensesPerHead> perHeadExpenses(int perHeadExpenses,List<Payment> paymentList){
 
         List<ExpensesPerHead> expensesPerHeads=new ArrayList<ExpensesPerHead>();
-        int perHead=totalExpenses/totalMember;
+
 
         for(Payment payment:paymentList){
-            if(perHead >=payment.getPaymentAmount()){
-                int paymentDeu=perHead-payment.getPaymentAmount();
-                expensesPerHeads.add(new ExpensesPerHead(payment.getName(),perHead,paymentDeu,0));
+            if(perHeadExpenses >=payment.getPaymentAmount()){
+                int paymentDeu=perHeadExpenses-payment.getPaymentAmount();
+                expensesPerHeads.add(new ExpensesPerHead(payment.getName(),perHeadExpenses,paymentDeu,0));
             }else{
-                int receivedDeu=payment.getPaymentAmount()-perHead;
-                expensesPerHeads.add(new ExpensesPerHead(payment.getName(),perHead,0,receivedDeu));
+                int receivedDeu=payment.getPaymentAmount()-perHeadExpenses;
+                expensesPerHeads.add(new ExpensesPerHead(payment.getName(),perHeadExpenses,0,receivedDeu));
 
             }
 
         }
 return  expensesPerHeads;
+    }
+
+    public int perHeadExpenses(int totalExpenses,int totalMember){
+        int perHead=totalExpenses/totalMember;
+
+        return perHead;
     }
 
 }

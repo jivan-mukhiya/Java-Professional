@@ -1,10 +1,10 @@
 package com.expensesManagement;
 
-public class GroupModel {
+public class Group {
     private String groupName;
     private String groupMember;
 
-    public GroupModel(String groupName, String groupMember) {
+    public Group(String groupName, String groupMember) {
         this.groupName = groupName;
         this.groupMember = groupMember;
     }
@@ -25,7 +25,7 @@ public class GroupModel {
         this.groupMember = groupMember;
     }
 
-    public GroupModel() {
+    public Group() {
     }
 
     @Override
